@@ -6,7 +6,8 @@ function App() {
 
 
   return (
-    <div className="w-full h-screen bg-gray-200">
+    <div className='w-full h-screen bg-pink-200'>
+    <div className="w-[500px] flex flex-col justify-center items-center h-[500px] bg-gray-200">
       <div className='w-[90px] h-[90px] bg-red-500'>
       </div>
       <div className='w-[90px] h-[90px] bg-yellow-500'>
@@ -15,6 +16,7 @@ function App() {
       </div>
       <div className='w-[90px] h-[90px] bg-green-500'>
       </div>
+    </div>
     </div>
   )
 }
