@@ -6,11 +6,15 @@ function App() {
 
 
   return (
-    <div className="">
-      <Header/>
-      <ProductCard name="Product 1" description="Description 1" price="$10.00" />
-      <ProductCard name="Product 2" description="Description 2" price="$20.00" />
-      <ProductCard name="Product 3" description="Description 3" price="$30.00" />
+    <div className="w-full h-screen bg-gray-200">
+      <div className='w-[90px] h-[90px] bg-red-500'>
+      </div>
+      <div className='w-[90px] h-[90px] bg-yellow-500'>
+      </div>
+      <div className='w-[90px] h-[90px] bg-blue-500'>
+      </div>
+      <div className='w-[90px] h-[90px] bg-green-500'>
+      </div>
     </div>
   )
 }
