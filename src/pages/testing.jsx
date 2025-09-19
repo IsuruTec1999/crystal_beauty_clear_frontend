@@ -2,17 +2,18 @@ import { useState } from "react";
 
 export default function Testing() {
     const [number, setNumber] = useState(0)
+    const [status, setStatus] = useState("Pending..")
     
 
 
     function increment(){
-       // number = number+1;
-        // console.log(number);
+        let newValue = number + 1;
+       setNumber(newValue)
     }
 
      function decrement(){
-        //number = number-1;
-        //console.log(number);
+        let newValue = number-1;
+        setNumber(newValue)
     }
 
 
@@ -22,6 +23,12 @@ export default function Testing() {
             <div className=" w-full  flex justify-center">
                 <button  onClick= {increment}className="bg-blue-600 text-white p-2 rounded-lg w-[60px] cursor-pointer"></button>
                 <button onClick= {decrement} className="bg-blue-600 text-white p-2 rounded-lg w-[60px]  cursor-pointer"></button>
+
+            </div>
+            <span className="text-3xl font-bold">{status}</span>
+            <div className=" w-full  flex justify-center">
+                <button  onClick= {()=>{setStatus("Passed")}}className="bg-blue-600 text-white p-2 rounded-lg w-[60px] cursor-pointer">Pass</button>
+                <button onClick= {()=>{setStatus("Failed")}} className="bg-blue-600 text-white p-2 rounded-lg w-[60px]  cursor-pointer">Fail</button>
 
             </div>
         </div>
