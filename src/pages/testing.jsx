@@ -1,14 +1,18 @@
+import { useState } from "react";
+
 export default function Testing() {
-    let number = 0;
+    const [number, setNumber] = useState(0)
+    
+
 
     function increment(){
-        number = number+1;
-         console.log(number);
+       // number = number+1;
+        // console.log(number);
     }
 
      function decrement(){
-        number = number-1;
-        console.log(number);
+        //number = number-1;
+        //console.log(number);
     }
 
 
