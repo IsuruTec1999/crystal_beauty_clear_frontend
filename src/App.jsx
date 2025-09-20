@@ -5,12 +5,14 @@ import ProductCard from './components/product_card'
 import AdminPage from './pages/adminPage'
 import LoginPage from './pages/loginPage'
 import Testing from './pages/testing'
+import { Toaster } from 'react-hot-toast'
 
 function App() {
 
 
   return (
     <BrowserRouter>
+    <Toaster position="top-right"/>
     <Routes path="/*">
       <Route path="/admin/*" element={<AdminPage/>}/>
       <Route  path="/login" element= {<LoginPage/>}/>
