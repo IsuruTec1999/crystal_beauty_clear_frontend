@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 
 export default function LoginPage() {
 
@@ -6,6 +7,22 @@ export default function LoginPage() {
     const [password, setPassword] = useState("");
 
     function handleLogin(){
+        console.log("Email :",email);
+        console.log("Password :",password);
+
+        axios.post("http://localhost:3000/api/user/login",{
+            email:email,
+            password:password
+        }).then((response)=>{
+            console.log("Login successful",response.data);
+        }).catch((error)=>{
+            console.log("login faild",error.response.data);
+        })
+
+
+
+
+
         console.log("Login button clicked")
     }
     return (
@@ -22,10 +39,11 @@ export default function LoginPage() {
                        
 
                         }} className="w-[400px] h-[50px] border border-white rounded-xl text-center m-[10px]" type="Email" placeholder="Email"></input>
-                    <input className="w-[400px] h-[50px] border border-white rounded-xl text-center m-[10px]" type="Password" placeholder="Password"></input>
-                    <button onChange={()=>{
+                    <input onChange={(e)=>{
                         setPassword(e.target.value)
-                    }} onClick={handleLogin} className="w-[400px] h-[50px] bg-green-500 text-white  rounded-xl text-center m-[10px] cursor-pointer">Login</button>
+                    }
+                    } className="w-[400px] h-[50px] border border-white rounded-xl text-center m-[10px]" type="Password" placeholder="Password"></input>
+                    <button onClick={handleLogin} className="w-[400px] h-[50px] bg-green-500 text-white  rounded-xl text-center m-[10px] cursor-pointer">Login</button>
                 </div>
             </div>
         </div>
