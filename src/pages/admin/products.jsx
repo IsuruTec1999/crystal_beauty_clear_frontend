@@ -21,8 +21,15 @@ export default function AdminProductsPage() {
         <div className="w-full h-screen  rounded-lg "> 
             {
                  products.map(
-                   ()=>{
-                    console.log("mapping")
+                   (product)=>{
+                    console.log("mapping"+product.productId)
+                    return (
+                        <h1 key={product.productId}>
+                            {product.name}
+                        </h1>
+                    )
+
+                    
                    }      
 
                  )
