@@ -20,7 +20,12 @@ export default function AdminProductsPage() {
     return (
         <div className="w-full h-screen  rounded-lg "> 
             {
-                
+                 products.map(
+                   ()=>{
+                    console.log("mapping")
+                   }      
+
+                 )
             }
         </div>
     )
