@@ -19,14 +19,25 @@ export default function AdminProductsPage() {
 
     return (
         <div className="w-full h-screen  rounded-lg "> 
+        <table>
+            <thead>
+
+
+            </thead>
+            <tbody></tbody>
+
+
+        </table>
+
+
             {
                  products.map(
                    (product)=>{
                     console.log("mapping"+product.productId)
                     return (
-                        <h1 key={product.productId}>
-                            {product.name}
-                        </h1>
+                        <div className="w-full h-[100px] bg-gray-300 flex items-center justify-between  p-2 " >
+                            
+                        </div>
                     )
 
                     
