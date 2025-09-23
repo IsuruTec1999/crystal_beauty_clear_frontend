@@ -19,25 +19,30 @@ export default function AdminProductsPage() {
 
     return (
         <div className="w-full h-screen  rounded-lg "> 
-        <table>
+        <table className="w-full">
             <thead>
-
+                <tr>
+                    <th className="p-2">Product Id</th>
+                    <th className="p-2">Name</th>
+                    <th className="p-2">Price</th>
+                    <th className="p-2">Labeled Price</th>
+                    <th className="p-2">Stock</th>
+                </tr>
 
             </thead>
-            <tbody></tbody>
-
-
-        </table>
-
-
-            {
+            <tbody>
+                 {
                  products.map(
-                   (product)=>{
+                   (product,index)=>{
                     console.log("mapping"+product.productId)
                     return (
-                        <div className="w-full h-[100px] bg-gray-300 flex items-center justify-between  p-2 " >
-                            
-                        </div>
+                        <tr key={index} className="border-b-2 border-gray-400" >
+                            <td className="p-2">{product.productId}</td>
+                            <td className="p-2">{product.name}</td>
+                            <td className="p-2">{product.price}</td>
+                            <td className="p-2">{product.labeledPrice}</td>
+                            <td className="p-2">{product.stock}</td>
+                        </tr>
                     )
 
                     
@@ -45,6 +50,14 @@ export default function AdminProductsPage() {
 
                  )
             }
+
+            </tbody>
+
+
+        </table>
+
+
+           
         </div>
     )
 } 
