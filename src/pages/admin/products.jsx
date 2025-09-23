@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react";
 import { FaPlus } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 export default function AdminProductsPage() {
 
@@ -20,9 +21,9 @@ export default function AdminProductsPage() {
 
     return (
         <div className="w-full h-screen  rounded-lg  relative"> 
-        <button className="text-white bg-gray-700 p-[12px] absolute bottom-5 right-5 rounded-full text-3xl cusor-pointer hover:bg-gray-300 hover:text-gray-700 ">
+        < Link to="/admin/addProduct" className="text-white bg-gray-700 p-[12px] absolute bottom-5 right-5 rounded-full text-3xl cusor-pointer hover:bg-gray-300 hover:text-gray-700 ">
             <FaPlus />
-        </button>
+        </Link>
         <table className="w-full">
             <thead>
                 <tr>
