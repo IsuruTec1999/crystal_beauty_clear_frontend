@@ -7,7 +7,7 @@ export default function AddProductForm() {
 
 const [productId, setProductId] = useState("");   
 const [Name, setName] = useState("");
-const [altName, setAltName] = useState("");
+const [altNames, setAltNames] = useState("");
 const [price, setPrice] = useState("");
 const [labledPrice, setLabledPrice] = useState("");
 const [description, setDescription] = useState("");
@@ -15,11 +15,22 @@ const [stock, setStock] = useState("");
 
 
     function handleSubmit() {
+        const altNamesArray = altNames.split(",")
         const product = {
             productId : productId,
             Name : Name,
-            
+            altNames : altNamesArray,
+            price : price,
+            labledPrice : labledPrice,
+            description : description,
+            stock : stock,
+            images : [
+                "https://picsum.photos/id/102/200/300",
+                "https://picsum.photos/id/103/200/300",
+                "https://picsum.photos/id/104/200/300"
+            ]
         }
+        console.log(product)
         toast.success("Product added successfully")    
 
     }
@@ -50,9 +61,9 @@ const [stock, setStock] = useState("");
 
                     </input>
                     <input 
-                        value={altName}
+                        value={altNames}
                         onChange={(e) => {
-                            setAltName(e.target.value);
+                            setAltNames(e.target.value);
                         }}
                     
                     className="w-[400px] h-[50px] border border-gray-500 rounded-xl text-center m-[5px]"  placeholder="Alternative Name">
