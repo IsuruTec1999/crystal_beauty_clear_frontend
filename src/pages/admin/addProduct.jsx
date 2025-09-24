@@ -1,17 +1,25 @@
+
+import { useState } from "react";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 export default function AddProductForm() {
 
-    const [productId, setProductId] = useState("");
-    //const [productName, setProductName] = useState("");
-    //const [alternativeName, setAlternativeName] = useState("");
-    //const [price, setPrice] = useState("");
-    //const [labledPrice, setLabledPrice] = useState("");
-    //const [description, setDescription] = useState("");
-    //const [stock, setStock] = useState("");
+const [productId, setProductId] = useState("");   
+const [Name, setName] = useState("");
+const [altName, setAltName] = useState("");
+const [price, setPrice] = useState("");
+const [labledPrice, setLabledPrice] = useState("");
+const [description, setDescription] = useState("");
+const [stock, setStock] = useState("");
+
 
     function handleSubmit() {
+        const product = {
+            productId : productId,
+            Name : Name,
+            
+        }
         toast.success("Product added successfully")    
 
     }
@@ -22,30 +30,72 @@ export default function AddProductForm() {
             <div className="w-[500px] h-[600px]  rounded-lg shadow-lg flex flex-col  items-center">
                             <h1 className="text-3xl font-bold m-[10px] text-gray-700">Add Product</h1>
                     <input 
-                        value={productId}
+                         value={productId}
                         onChange={(e) => {
-                             toast.success(e.target.value)
+                            setProductId(e.target.value);
                             }
                         }
+
+                       
                     className="w-[400px] h-[50px] border border-gray-500 rounded-xl text-center m-[5px]"  placeholder="Product ID">
 
                     </input>
-                    <input className="w-[400px] h-[50px] border border-gray-500 rounded-xl text-center m-[5px]"  placeholder="Product Name">
+                    <input
+                        value={Name}
+                        onChange={(e) => {
+                            setName(e.target.value);
+                        }}
+                    
+                    className="w-[400px] h-[50px] border border-gray-500 rounded-xl text-center m-[5px]"  placeholder="Product Name">
 
                     </input>
-                    <input className="w-[400px] h-[50px] border border-gray-500 rounded-xl text-center m-[5px]"  placeholder="Alternative Name">
+                    <input 
+                        value={altName}
+                        onChange={(e) => {
+                            setAltName(e.target.value);
+                        }}
+                    
+                    className="w-[400px] h-[50px] border border-gray-500 rounded-xl text-center m-[5px]"  placeholder="Alternative Name">
 
                     </input>
-                    <input className="w-[400px] h-[50px] border border-gray-500 rounded-xl text-center m-[5px]"  placeholder="Price">
+                    <input 
+                        value={price}
+                        onChange={(e) => {
+                            setPrice(e.target.value);
+                        }}
+                        type="number"
+                    
+                    className="w-[400px] h-[50px] border border-gray-500 rounded-xl text-center m-[5px]"  placeholder="Price">
 
                     </input>
-                    <input className="w-[400px] h-[50px] border border-gray-500 rounded-xl text-center m-[5px]"  placeholder="Labled Price">
+                    <input 
+
+                        value={labledPrice}
+                        onChange={(e) => {
+                            setLabledPrice(e.target.value);
+                        }}
+                        type="number"
+                    
+                    className="w-[400px] h-[50px] border border-gray-500 rounded-xl text-center m-[5px]"  placeholder="Labled Price">
 
                     </input>
-                    <textarea className="w-[400px] h-[50px] border border-gray-500 rounded-xl text-center m-[5px]"  placeholder="Product ID">
+                    <textarea
+                        value={description}
+                        onChange={(e) => {
+                            setDescription(e.target.value);
+                        }}
+                    
+                    className="w-[400px] h-[50px] border border-gray-500 rounded-xl text-center m-[5px]"  placeholder="Product ID">
 
                     </textarea>
-                    <input className="w-[400px] h-[50px] border border-gray-500 rounded-xl text-center m-[5px]"  placeholder="Stock">
+                    <input
+                        value={stock}
+                        onChange={(e) => {
+                            setStock(e.target.value);
+                        }}
+                        type="number"
+                    
+                    className="w-[400px] h-[50px] border border-gray-500 rounded-xl text-center m-[5px]"  placeholder="Stock">
 
                     </input>
                     <div className="w-[400px] h-[100px]  flex justify-between items-center rounded-lg">
