@@ -1,4 +1,5 @@
 
+import axios from "axios";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
@@ -6,8 +7,8 @@ import { Link } from "react-router-dom";
 export default function AddProductForm() {
 
 const [productId, setProductId] = useState("");   
-const [Name, setName] = useState("");
-const [altNames, setAltNames] = useState("");
+const [name, setName] = useState("");
+const [altName, setAltNames] = useState("");
 const [price, setPrice] = useState("");
 const [labledPrice, setLabledPrice] = useState("");
 const [description, setDescription] = useState("");
@@ -15,13 +16,13 @@ const [stock, setStock] = useState("");
 
 
     function handleSubmit() {
-        const altNamesArray = altNames.split(",")
+        const altNamesArray = altName.split(",")
         const product = {
             productId : productId,
-            Name : Name,
-            altNames : altNamesArray,
+            name : name,
+            altName : altNamesArray,
             price : price,
-            labledPrice : labledPrice,
+            labeledPrice : labledPrice,
             description : description,
             stock : stock,
             images : [
@@ -30,8 +31,26 @@ const [stock, setStock] = useState("");
                 "https://picsum.photos/id/104/200/300"
             ]
         }
-        console.log(product)
-        toast.success("Product added successfully")    
+        const token = localStorage.getItem("token")
+        console.log(token)
+
+       axios.post(import.meta.env.VITE_BACKEND_URL+"/api/product", product,{
+            headers : {
+                "Authorization" : "Bearer "+token
+            }
+        }).then(
+            ()=>{
+                toast.success("Product added successfully")
+            }
+        ).catch(
+                ()=>{
+                    toast.error("Failed to add product")
+                    
+                }
+            )
+
+            
+ 
 
     }
 
@@ -52,7 +71,7 @@ const [stock, setStock] = useState("");
 
                     </input>
                     <input
-                        value={Name}
+                        value={name}
                         onChange={(e) => {
                             setName(e.target.value);
                         }}
@@ -61,7 +80,7 @@ const [stock, setStock] = useState("");
 
                     </input>
                     <input 
-                        value={altNames}
+                        value={altName}
                         onChange={(e) => {
                             setAltNames(e.target.value);
                         }}
@@ -96,7 +115,7 @@ const [stock, setStock] = useState("");
                             setDescription(e.target.value);
                         }}
                     
-                    className="w-[400px] h-[50px] border border-gray-500 rounded-xl text-center m-[5px]"  placeholder="Product ID">
+                    className="w-[400px] h-[50px] border border-gray-500 rounded-xl text-center m-[5px]"  placeholder="Product Description">
 
                     </textarea>
                     <input
