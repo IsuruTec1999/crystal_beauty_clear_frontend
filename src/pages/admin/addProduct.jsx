@@ -2,7 +2,7 @@
 import axios from "axios";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function AddProductForm() {
 
@@ -13,6 +13,7 @@ const [price, setPrice] = useState("");
 const [labledPrice, setLabledPrice] = useState("");
 const [description, setDescription] = useState("");
 const [stock, setStock] = useState("");
+const navigate = useNavigate()
 
 
     function handleSubmit() {
@@ -41,6 +42,7 @@ const [stock, setStock] = useState("");
         }).then(
             ()=>{
                 toast.success("Product added successfully")
+                navigate("/admin/products")
             }
         ).catch(
                 ()=>{

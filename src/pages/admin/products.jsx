@@ -66,3 +66,6 @@ export default function AdminProductsPage() {
         </div>
     )
 } 
+
+//https://qvypebqmubxswenpazbm.supabase.co
+//---->  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF2eXBlYnFtdWJ4c3dlbnBhemJtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg3NzY3NTUsImV4cCI6MjA3NDM1Mjc1NX0.IiEBUgbXcD4wb_wHyJU9Vsp3gzfneK-hnXmSCLSPGCg
