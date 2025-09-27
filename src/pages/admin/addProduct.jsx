@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
+import mediaUpload from "../../utils/mediaUpload";
 
 export default function AddProductForm() {
 
@@ -13,10 +14,21 @@ const [price, setPrice] = useState("");
 const [labledPrice, setLabledPrice] = useState("");
 const [description, setDescription] = useState("");
 const [stock, setStock] = useState("");
+const [images, setImages] = useState([]);
 const navigate = useNavigate()
 
 
-    function handleSubmit() {
+
+    async function handleSubmit() {
+        const promisesArray = [];
+        for (let i=0; i<images.length; i++){
+            const promise = mediaUpload(images[i])
+            promisesArray[i] = promise
+        }
+        try{
+        const result = await Promise.all(promisesArray)
+        
+
         const altNamesArray = altName.split(",")
         const product = {
             productId : productId,
@@ -26,32 +38,23 @@ const navigate = useNavigate()
             labeledPrice : labledPrice,
             description : description,
             stock : stock,
-            images : [
-                "https://picsum.photos/id/102/200/300",
-                "https://picsum.photos/id/103/200/300",
-                "https://picsum.photos/id/104/200/300"
-            ]
+            images : result
         }
         const token = localStorage.getItem("token")
         console.log(token)
 
-       axios.post(import.meta.env.VITE_BACKEND_URL+"/api/product", product,{
+       await axios.post(import.meta.env.VITE_BACKEND_URL+"/api/product", product,{
             headers : {
                 "Authorization" : "Bearer "+token
             }
-        }).then(
-            ()=>{
-                toast.success("Product added successfully")
-                navigate("/admin/products")
-            }
-        ).catch(
-                ()=>{
-                    toast.error("Failed to add product")
-                    
-                }
-            )
+        })
+        toast.success("Product added successfully")
+        navigate("/admin/products")
 
-            
+     }catch (error){  
+        console.log(error)
+        toast.error("Failed to add product")
+     }    
  
 
     }
@@ -120,6 +123,15 @@ const navigate = useNavigate()
                     className="w-[400px] h-[50px] border border-gray-500 rounded-xl text-center m-[5px]"  placeholder="Product Description">
 
                     </textarea>
+                    <input
+                        type="file"
+                        onChange={(e)=>{
+                            setImages(e.target.files)
+                        }
+                    }
+                    multiple
+                    className="w-[400px] h-[50px] border border-gray-500 rounded-xl text-center m-[5px]"  placeholder=" Product Images"></input>
+
                     <input
                         value={stock}
                         onChange={(e) => {
