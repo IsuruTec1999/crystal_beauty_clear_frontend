@@ -4,20 +4,47 @@ import { FaPlus } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { GrEdit } from "react-icons/gr";
+import toast from "react-hot-toast";
 export default function AdminProductsPage() {
 
     const [products, setProducts] = useState([]);
+    const [loaded, setLoaded] = useState(false);
 
     useEffect(
         ()=>{
+            if (loaded) {
             axios.get(import.meta.env.VITE_BACKEND_URL+"/api/product").then(
             (response)=>{
                 console.log(response.data)
                 setProducts(response.data)
+                setLoaded(true)
         })
+    }
         },
         []
     )
+
+    async function  deleteProduct(id) {
+        const token= localStorage.getItem("token")
+        if (token == null) {
+            toast.error("Please loggin to delete a product")
+            return
+        }
+        try{
+            await axios.delete(import.meta.env.VITE_BACKEND_URL+"/api/product/"+id, {
+            headers : {
+                Authorization : "Bearer "+token
+            }
+            })
+            toast.success("Product deleted successfully")
+            
+        }catch(error){
+            console.log(error)
+            toast.error("Failed to delete product")
+            return
+        }
+        
+    }
 
 
     return (
@@ -50,7 +77,11 @@ export default function AdminProductsPage() {
                             <td className="p-2">{product.stock}</td>
                             <td className="p-2">
                                 <div className="w-full h-full flex  justify-center ">
-                                    <FaRegTrashAlt className="text-[25px] m-[10px] hover:text-red-600 "/>
+                                    <FaRegTrashAlt onClick={() => {
+                                    deleteProduct(product.productId)
+                                    }}
+                                     className="text-[25px] m-[10px] hover:text-red-600 "/>
+
                                     <GrEdit className="text-[25px] m-[10px] hover:text-blue-500" />
                                 </div></td>
                         </tr>
