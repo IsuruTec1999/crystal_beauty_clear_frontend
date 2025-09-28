@@ -2,7 +2,8 @@ import axios from "axios"
 import { useEffect, useState } from "react";
 import { FaPlus } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-
+import { FaRegTrashAlt } from "react-icons/fa";
+import { GrEdit } from "react-icons/gr";
 export default function AdminProductsPage() {
 
     const [products, setProducts] = useState([]);
@@ -32,6 +33,7 @@ export default function AdminProductsPage() {
                     <th className="p-2">Price</th>
                     <th className="p-2">Labeled Price</th>
                     <th className="p-2">Stock</th>
+                    <th className="p-2">Actions</th>
                 </tr>
 
             </thead>
@@ -39,14 +41,18 @@ export default function AdminProductsPage() {
                  {
                  products.map(
                    (product,index)=>{
-                    console.log("mapping"+product.productId)
                     return (
-                        <tr key={index} className="border-b-2 border-gray-400 text-center cursor-pointer hover:bg-gray-700 hover:text-white" >
+                        <tr key={index} className="border-b-2 border-gray-400 text-center cursor-pointer hover:bg-gray-200 " >
                             <td className="p-2">{product.productId}</td>
                             <td className="p-2">{product.name}</td>
                             <td className="p-2">{product.price}</td>
                             <td className="p-2">{product.labeledPrice}</td>
                             <td className="p-2">{product.stock}</td>
+                            <td className="p-2">
+                                <div className="w-full h-full flex  justify-center ">
+                                    <FaRegTrashAlt className="text-[25px] m-[10px] hover:text-red-600 "/>
+                                    <GrEdit className="text-[25px] m-[10px] hover:text-blue-500" />
+                                </div></td>
                         </tr>
                     )
 
@@ -67,5 +73,3 @@ export default function AdminProductsPage() {
     )
 } 
 
-//https://qvypebqmubxswenpazbm.supabase.co
-//---->  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF2eXBlYnFtdWJ4c3dlbnBhemJtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg3NzY3NTUsImV4cCI6MjA3NDM1Mjc1NX0.IiEBUgbXcD4wb_wHyJU9Vsp3gzfneK-hnXmSCLSPGCg
