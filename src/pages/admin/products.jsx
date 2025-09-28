@@ -12,16 +12,17 @@ export default function AdminProductsPage() {
 
     useEffect(
         ()=>{
-            if (loaded) {
+            if (!loaded) {
             axios.get(import.meta.env.VITE_BACKEND_URL+"/api/product").then(
             (response)=>{
                 console.log(response.data)
                 setProducts(response.data)
                 setLoaded(true)
-        })
-    }
+            
+            })
+        }
         },
-        []
+        [loaded]
     )
 
     async function  deleteProduct(id) {
@@ -36,6 +37,7 @@ export default function AdminProductsPage() {
                 Authorization : "Bearer "+token
             }
             })
+            setLoaded(false);
             toast.success("Product deleted successfully")
             
         }catch(error){
@@ -52,7 +54,7 @@ export default function AdminProductsPage() {
         < Link to="/admin/addProduct" className="text-white bg-gray-700 p-[12px] absolute bottom-5 right-5 rounded-full text-3xl cusor-pointer hover:bg-gray-300 hover:text-gray-700 ">
             <FaPlus />
         </Link>
-        <table className="w-full">
+        {loaded &&<table className="w-full">
             <thead>
                 <tr>
                     <th className="p-2">Product Id</th>
@@ -79,6 +81,7 @@ export default function AdminProductsPage() {
                                 <div className="w-full h-full flex  justify-center ">
                                     <FaRegTrashAlt onClick={() => {
                                     deleteProduct(product.productId)
+                                    
                                     }}
                                      className="text-[25px] m-[10px] hover:text-red-600 "/>
 
@@ -96,7 +99,18 @@ export default function AdminProductsPage() {
             </tbody>
 
 
-        </table>
+        </table>}
+        {
+            !loaded && 
+            <div className ="w=full h-full flex justify-center items-center ">
+                <div className = "w-[70px] h-[70px] border-transparent border-t-blue-900 border-[4px] rounded-full animate-spin ">
+
+                </div>
+
+
+
+            </div>
+        }
 
 
            
