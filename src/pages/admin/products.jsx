@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { GrEdit } from "react-icons/gr";
 import toast from "react-hot-toast";
+import Loader from "../../components/loader";
 export default function AdminProductsPage() {
 
     const [products, setProducts] = useState([]);
@@ -102,14 +103,7 @@ export default function AdminProductsPage() {
         </table>}
         {
             !loaded && 
-            <div className ="w=full h-full flex justify-center items-center ">
-                <div className = "w-[70px] h-[70px] border-transparent border-t-blue-900 border-[4px] rounded-full animate-spin ">
-
-                </div>
-
-
-
-            </div>
+            <Loader/>
         }
 
 
