@@ -33,12 +33,15 @@ const [images, setImages] = useState([]);
             promisesArray[i] = promise
         }
         try{
-        const result = await Promise.all(promisesArray)
+            let result = await Promise.all(promisesArray);
         
+        if(images.length == 0){
+            result = locationData.state.images
+        }
 
         const altNamesArray = altName.split(",")
         const product = {
-            productId : productId,
+
             name : name,
             altName : altNamesArray,
             price : price,
@@ -50,17 +53,17 @@ const [images, setImages] = useState([]);
         const token = localStorage.getItem("token")
         console.log(token)
 
-       await axios.post(import.meta.env.VITE_BACKEND_URL+"/api/product", product,{
+       await axios.put(import.meta.env.VITE_BACKEND_URL+"/api/product/"+productId, product,{
             headers : {
                 "Authorization" : "Bearer "+token
             }
         })
-        toast.success("Product added successfully")
+        toast.success("Product updated successfully")
         navigate("/admin/products")
 
      }catch (error){  
         console.log(error)
-        toast.error("Failed to add product")
+        toast.error("Product updating failed")
      }    
  
 
