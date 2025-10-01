@@ -2,12 +2,13 @@ import { Link } from "react-router-dom";
 
 export default function Header() {
     return(
-        <header className="w-full  h-[70px] bg-blue-900 text-white flex justify-around items-center text-xl font-bold">
+        <header className="w-full  h-[70px]   flex justify-center items-center  ">
+            <div className=" w-[500px] h-full flex justify-evenly items-center text-pink-400 text-xl  ">
             <Link to = "/"> Home </Link>
             <Link to = "/products">Products </Link>
             <Link to = "/contact">Contact Us </Link>
             <Link to = "/reviews">Reviews </Link>
-           
+            </div>
         </header>
     )
 }
