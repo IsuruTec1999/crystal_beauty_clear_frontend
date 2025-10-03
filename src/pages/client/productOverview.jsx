@@ -43,8 +43,16 @@ export default function ProductOverview(){
             }
             {
                 status == "loaded" && 
-                    <div className="w-full h-full">
-                        Product Loaded
+                    <div className="w-full h-full flex ">
+                        <div className="w-[50%] h-full ">
+                            
+
+
+                        </div>
+                        <div className="w-[50%] h-full bg-blue-900">
+                            
+
+                        </div>
                     </div>
             }
             {
