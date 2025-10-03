@@ -50,8 +50,27 @@ export default function ProductOverview(){
 
 
                         </div>
-                        <div className="w-[50%] h-full ">
-                            <h1 className="text-black  text-center  text-2xl font-bold">{product.name}</h1>
+                        <div className="w-[50%] h-full  p-[40px]">
+                            <h1 className="text-black  text-center  text-3xl font-bold mb-[40px]">{product.name}{" | "}<span className="text-gray-500   text-3xl mr-[20px]"> {product.altName.join(" | ")}</span></h1>
+                            <h2 className="text-gray-500  text-center  text-2xl font-semibold">
+                               
+                            </h2>
+                            <div className="w-full flex justify-center mb-[40px]">
+                                {
+                                    product.labeledPrice > product.price?
+                                    <>
+                                    <h2 className="text-2xl mx-[20px]">LKR : {product.price.toFixed(2)}</h2>
+                                    <h2 className="text-2xl line-through text-gray-500">
+                                        LKR : {product.labeledPrice.toFixed(2)}</h2>
+                                    
+                                    </>
+                                    :
+                                      <h2 className="text-2xl mx-[20px]">LKR : {product.price}</h2>
+                                    
+                                }
+                            </div>
+                            
+                            <p className="text-gray-500  text-center  text-xl mb-[40px]">{product.description}</p>
 
                         </div>
                     </div>
