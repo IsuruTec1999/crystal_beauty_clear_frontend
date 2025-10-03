@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useParams } from "react-router-dom"
 import Loader from "../../components/loader";
+import ImageSlider from "../../components/imageSlider";
 
 export default function ProductOverview(){
     const params = useParams();
@@ -22,7 +23,7 @@ export default function ProductOverview(){
             axios.get(import.meta.env.VITE_BACKEND_URL+"/api/product/"+params.id).then(
                 (res)=>{
                     console.log(res)
-                    setProduct(res.data);
+                    setProduct(res.data.product);
                     setStatus("loaded");
                 }
             ).catch(
@@ -45,12 +46,12 @@ export default function ProductOverview(){
                 status == "loaded" && 
                     <div className="w-full h-full flex ">
                         <div className="w-[50%] h-full ">
-                            
+                            <ImageSlider images={product.images}/>  
 
 
                         </div>
-                        <div className="w-[50%] h-full bg-blue-900">
-                            
+                        <div className="w-[50%] h-full ">
+                            <h1 className="text-black  text-center  text-2xl font-bold">{product.name}</h1>
 
                         </div>
                     </div>
