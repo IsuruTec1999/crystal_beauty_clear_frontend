@@ -14,7 +14,7 @@ export default function getCart(){
 }
 
 export function addToCart(product, qty){
-    const cart = getCart();
+    let cart = getCart();
     console.log(cart);
 
     const productIndex = cart.findIndex((prdct)=> prdct.productId === product.productId);
@@ -34,7 +34,7 @@ export function addToCart(product, qty){
     }else{
         cart[productIndex].quantity += qty;
         if(cart[productIndex].quantity <= 0){
-            cart = cart.filter((product)=> product.productId !== product.productId);
+            cart = cart.filter((prdct) => prdct.productId !== product.productId);
         }
     }
 
