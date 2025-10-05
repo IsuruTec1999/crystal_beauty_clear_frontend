@@ -49,6 +49,14 @@ export function removeFromCart(productId){
     return cart;
 }
     
+export function getTotal(){
+    let cart = getCart();
+    let total = 0;
+    cart.forEach((product)=>{
+        total += product.price * product.quantity;
+    });
+    return total;
+}
 
 
             

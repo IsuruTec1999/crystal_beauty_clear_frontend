@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import getCart, { addToCart, removeFromCart } from "../../utils/cart";
+import getCart, { addToCart, getTotal, removeFromCart } from "../../utils/cart";
 import { TbTrash } from "react-icons/tb";
 
 export default function CartPage() {
@@ -60,7 +60,10 @@ export default function CartPage() {
 
                     })     
                 }
-            
+                <div className="w-full h-[100px] bg-red-500">
+                    <h1>{getTotal()}</h1>
+
+                </div>
             </div>
         
         </div>
