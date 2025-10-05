@@ -1,18 +1,15 @@
 import { useEffect, useState } from "react";
 import getCart, { addToCart, getTotal, getTotalForLabeledPrice, removeFromCart } from "../../utils/cart";
 import { TbTrash } from "react-icons/tb";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
-export default function CartPage() {
+export default function CheckoutPage() {
+    const location = useLocation();
     const [cartLoaded, setCartLoaded] = useState(false);
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState(location.state.items);
     const navigate = useNavigate();
     useEffect(()=>{
-        if(cartLoaded == false){
-            const cart = getCart();
-            setCart(cart);
-            setCartLoaded(true);
-        }
+        
     },[cartLoaded])
     return (
         <div className="w-full h-full flex justify-center p-[40px]"> 
@@ -23,7 +20,8 @@ export default function CartPage() {
                             <div key ={index} className="w-full h-[100px] bg-white shadow-2xl my-[5px] flex items-center justify-between  p-[20px] relative">
                                 <button className="absolute right-[-50px] bg-red-500 w-[40px] h-[40px] rounded-full   text-white cursor-pointer flex justify-center items-center shadow"
                                     onClick={()=>{
-                                        removeFromCart(item.productId);
+                                        const newCart = cart.filter((product)=> product.productId !== item.productId);
+                                        setCart(newCart)
                                         setCartLoaded(false);
                                     }}>
                                     <TbTrash />
@@ -39,13 +37,18 @@ export default function CartPage() {
                                 <div className="h-full  w-[100px] justify-center items-center flex ">
                                     <button className="text-2xl w-[30px] h-[30px] bg-black text-white cursor-pointer rounded-full flex justify-center items-center mx-[5px] "
                                     onClick={() => {
-                                        addToCart(item,-1)
+                                        const newCart = cart
+                                        newCart[ index ].quantity -= 1
+                                        if (newCart[ index ].quantity <= 0) newCart[ index ].quantity = 1
+                                        setCart(newCart)
                                         setCartLoaded(false);
                                         }}>-</button>
                                     <h2 className="font-bold text-xl ">{item.quantity}</h2>
                                     <button className="text-2xl w-[30px] h-[30px] bg-black text-white cursor-pointer rounded-full flex justify-center items-center mx-[5px] "
                                     onClick={() => {
-                                        addToCart(item,1)
+                                        addToCart(item.productId)
+                                        const newCart = cart
+                                        newCart[ index ].quantity += 1
                                         setCartLoaded(false);
                                         }}>+</button>
 

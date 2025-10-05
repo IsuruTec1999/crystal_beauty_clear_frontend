@@ -23,6 +23,7 @@ function App() {
       <Route path = "/register" element= {<RegisterPage/>}/>    
       <Route path="/*" element= {<HomePage/>}/>
       
+      
    
 
     </Routes>
