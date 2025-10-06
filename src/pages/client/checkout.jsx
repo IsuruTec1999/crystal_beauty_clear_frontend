@@ -1,4 +1,6 @@
+import axios from "axios";
 import {  useState } from "react";
+import toast from "react-hot-toast";
 import { TbTrash } from "react-icons/tb";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -6,7 +8,40 @@ export default function CheckoutPage() {
     const location = useLocation();
     const [cart, setCart] = useState(location.state.items);
     const [cartRefresh, setCartRefresh] = useState(false);
+    const [name,setName] = useState("");
+    const [address,setAddress] = useState("");
+    const [phone,setPhone] = useState("");
     const navigate = useNavigate();
+  
+
+  function placeOrder(){
+    const orderData = {
+        name : name,
+        address : address,
+        phoneNumber : phone,
+        billItems : []
+
+    }
+    for (let i = 0; i < cart.length; i++) {
+        orderData.billItems[i] = {
+            productId : cart[i].productId,
+            quantity : cart[i].quantity
+        }
+        
+    }
+    const token = localStorage.getItem("token");
+    axios.post(import.meta.env.VITE_BACKEND_URL+"/api/order",orderData,{
+        headers : {
+            Authorization : "Bearer "+token,
+        }
+    }).then(()=>{
+        navigate("/");
+        toast.success("Order Placed Successfully");
+    }).catch((error)=>{
+        console.log(error);
+        toast.error("Order Placing Failed");
+    })
+  }
 
     function getTotal() {
         let total = 0;
@@ -90,17 +125,25 @@ export default function CheckoutPage() {
                     <h1 className="w-[100px]  text-xl text-end pr-2">Net Total</h1>
                     <h1 className="w-[100px] text-xl text-end pr-2 border-double border-b-[4px]">{getTotal().toFixed(2)}</h1>
                 </div>
+                
+                <div className="w-full  flex justify-end">
+                    <h1 className="w-[100px]  text-xl text-end pr-2">Name</h1>
+                    <input type="text" className="w-[300px] border border-gray-300 rounded p-2 text-xl text-end pr-2" value={name} onChange={(e)=> setName(e.target.value)}/>
+                </div>
+                <div className="w-full  flex justify-end ">
+                    <h1 className="w-[100px]  text-xl text-end pr-2">Address</h1>
+                    <input type="text" className="w-[300px] border border-gray-300 rounded p-2 text-xl text-end pr-2" value={address} onChange={(e)=> setAddress(e.target.value)}/>
+                </div>
+                <div className="w-full  flex justify-end ">
+                    <h1 className="w-[100px]  text-xl text-end pr-2">Phone</h1>
+                    <input type="text" className="w-[300px] border border-gray-300 rounded p-2 text-xl text-end pr-2" value={phone} onChange={(e)=> setPhone(e.target.value)}/>
+                </div>
+                
                 <div className="w-full  flex justify-end"> 
-                    <button className="bg-pink-400 border border-pink-400 text-white p-[12px] rounded-lg hover:bg-white hover:text-pink-500 cursor-pointer float-right mt-[20px]" onClick={() => {
-                        navigate("/checkout", 
-                            {
-                                state: {
-                                    items : cart
-                                }
-                            }
-                        )
-                         
-                        }}>Place Order</button>
+                    <button className="bg-pink-400 border border-pink-400 text-white p-[12px] rounded-lg hover:bg-white hover:text-pink-500 cursor-pointer float-right mt-[20px]" 
+                    onClick={placeOrder}>
+                        Place Order
+                        </button>
                 </div>
             </div>
         
