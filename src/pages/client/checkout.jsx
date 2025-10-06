@@ -1,16 +1,29 @@
-import { useEffect, useState } from "react";
-import getCart, { addToCart, getTotal, getTotalForLabeledPrice, removeFromCart } from "../../utils/cart";
+import {  useState } from "react";
 import { TbTrash } from "react-icons/tb";
 import { useLocation, useNavigate } from "react-router-dom";
 
 export default function CheckoutPage() {
     const location = useLocation();
-    const [cartLoaded, setCartLoaded] = useState(false);
     const [cart, setCart] = useState(location.state.items);
+    const [cartRefresh, setCartRefresh] = useState(false);
     const navigate = useNavigate();
-    useEffect(()=>{
-        
-    },[cartLoaded])
+
+    function getTotal() {
+        let total = 0;
+        cart.forEach((item) => {
+            total += item.price * item.quantity;
+        });
+        return total;
+    }
+
+    function getTotalForLabeledPrice() {
+        let total = 0;
+        cart.forEach((item) => {
+            total += item.labeledPrice * item.quantity;
+        });
+        return total;
+    }
+    
     return (
         <div className="w-full h-full flex justify-center p-[40px]"> 
             <div className="w-[700px] ">
@@ -22,7 +35,6 @@ export default function CheckoutPage() {
                                     onClick={()=>{
                                         const newCart = cart.filter((product)=> product.productId !== item.productId);
                                         setCart(newCart)
-                                        setCartLoaded(false);
                                     }}>
                                     <TbTrash />
                                 </button>
@@ -41,15 +53,16 @@ export default function CheckoutPage() {
                                         newCart[ index ].quantity -= 1
                                         if (newCart[ index ].quantity <= 0) newCart[ index ].quantity = 1
                                         setCart(newCart)
-                                        setCartLoaded(false);
+                                        setCartRefresh(!cartRefresh)
+                                        
                                         }}>-</button>
                                     <h2 className="font-bold text-xl ">{item.quantity}</h2>
                                     <button className="text-2xl w-[30px] h-[30px] bg-black text-white cursor-pointer rounded-full flex justify-center items-center mx-[5px] "
                                     onClick={() => {
-                                        addToCart(item.productId)
                                         const newCart = cart
                                         newCart[ index ].quantity += 1
-                                        setCartLoaded(false);
+                                        setCart(newCart)
+                                        setCartRefresh(!cartRefresh)
                                         }}>+</button>
 
                                 </div>
