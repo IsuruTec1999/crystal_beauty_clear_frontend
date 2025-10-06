@@ -100,7 +100,7 @@ export default function CheckoutPage() {
                             }
                         )
                          
-                        }}>Proceed to Checkout</button>
+                        }}>Place Order</button>
                 </div>
             </div>
         
