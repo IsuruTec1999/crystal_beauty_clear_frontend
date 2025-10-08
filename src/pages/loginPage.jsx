@@ -14,11 +14,26 @@ export default function LoginPage() {
     const loginWithGoogle = useGoogleLogin(
         {
             onSuccess: (res) => {
-                console.log("success", res);
-            },
-            onError: (error) => {
-                console.log("Login Failed:", error);
-            },
+                setLoading(true);
+                axios.post(import.meta.env.VITE_BACKEND_URL+"/api/user/google",{
+                    accessToken : res.access_token 
+
+                }).then(
+                    (response)=>{
+                        console.log("Login successful",response.data);
+                        toast.success("Login successful")
+                        localStorage.setItem("token",response.data.token)  
+                        
+                        const user = response.data.user;
+                        if(user.role === "admin"){
+                            navigate("/admin")
+                        }else{
+                            navigate("/")
+                        }
+                        setLoading(false);  
+                            })
+                        }
+
         }
     )
 
@@ -85,7 +100,10 @@ export default function LoginPage() {
                         }}
                     >
                             <GrGoogle className="mr-[10px]"/>
-                            Login with Google
+                            {
+                                loading? "Loading...":"Login with Google"
+                            }
+                            
                     </button>
                     <p className="text-gray-600 text-center m-[10px]">
                         Don't have an account? 
