@@ -2,6 +2,8 @@ import { useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
+import { useGoogleLogin } from "@react-oauth/google";
+import { GrGoogle } from "react-icons/gr";
 
 export default function LoginPage() {
 
@@ -9,6 +11,16 @@ export default function LoginPage() {
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate()
+    const loginWithGoogle = useGoogleLogin(
+        {
+            onSuccess: (res) => {
+                console.log("success", res);
+            },
+            onError: (error) => {
+                console.log("Login Failed:", error);
+            },
+        }
+    )
 
     function handleLogin(){
         setLoading(true);
@@ -66,6 +78,14 @@ export default function LoginPage() {
                             loading? "Loading...":"Login"
                         }
 
+                    </button>
+                    <button className="w-[400px] h-[50px] bg-green-500 text-white  rounded-xl text-center m-[20px] cursor-pointer flex justify-center items-center"
+                        onClick={()=>{
+                            loginWithGoogle();
+                        }}
+                    >
+                            <GrGoogle className="mr-[10px]"/>
+                            Login with Google
                     </button>
                     <p className="text-gray-600 text-center m-[10px]">
                         Don't have an account? 
