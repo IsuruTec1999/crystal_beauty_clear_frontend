@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Loader from "../../components/loader";
 import { IoCloseSharp } from "react-icons/io5";
+import toast from "react-hot-toast";
 
 export default function AdminOrdersPage() {
     const [orders, setOrders] = useState([]);
@@ -59,6 +60,24 @@ export default function AdminOrdersPage() {
     "__v": 0
 }
     */
+   function changeOrderStatus(orderId, status) {
+    const token = localStorage.getItem("token");
+    axios
+      .put(
+        import.meta.env.VITE_BACKEND_URL + "/api/order/" + orderId,
+        { status: status },
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      )
+      .then(() => {
+        toast.success("Order Status changed successfully");
+        setLoaded(false);
+        
+      });
+  }
 
     return (
         <div className="w-full h-full  ">
@@ -76,6 +95,7 @@ export default function AdminOrdersPage() {
                             <th className="p-2">Status</th>
                             <th className="p-2">Total</th>
                             <th className="p-2">Date</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -84,11 +104,7 @@ export default function AdminOrdersPage() {
                             (order)=>{
                                 return (
                                      <tr key={order.orderId} className="border-b-2 border-gray-400 text-center cursor-pointer hover:bg-gray-200 " 
-                                     onClick={()=>{
-                                        setModelIsDisplaying(true)
-                                        setDisplayingOrder(order)
-
-                                     }}
+                                     
                                      >
                                     
                                     <td className="p-2">{order.orderId}</td>
@@ -96,9 +112,29 @@ export default function AdminOrdersPage() {
                                     <td className="p-2">{order.name}</td>
                                     <td className="p-2">{order.address}</td>
                                     <td className="p-2">{order.phoneNumber}</td>
-                                    <td className="p-2">{order.status}</td>
+                                    <td className="p-2">
+                                        <select value={order.status} className="z-50" onChange={
+                                            (e)=>{
+                                                changeOrderStatus(order.orderId, e.target.value)
+                                            }
+                                        }>
+                                        <option value="pending">Pending</option>
+                                        <option value="delivered">Delivered</option>
+                                        <option value="cancelled">Cancelled</option>
+                                        <option value="processing">Processing</option>
+                                        </select>
+                                    </td>
                                     <td className="p-2">{order.total.toFixed(2)}</td>
                                     <td className="p-2">{new Date(order.date).toDateString()}</td>
+                                    <td className="p-2">
+                                        <button className="bg-gray-500 p-2 text-white rounded-md hover:bg-gray-600"
+                                         onClick={()=>{
+                                        setModelIsDisplaying(true)
+                                        setDisplayingOrder(order)
+
+                                     }}>Details
+                                         </button>
+                                    </td>
                                      </tr>
                                 )
                             })
