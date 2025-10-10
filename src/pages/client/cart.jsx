@@ -16,7 +16,7 @@ export default function CartPage() {
     },[cartLoaded])
     return (
         <div className="w-full h-full flex justify-center p-[40px]"> 
-            <div className="w-[700px] ">
+            <div className="w-full lg:w-[700px] ">
                 {
                     cart.map((item , index)=>{
                         return(
