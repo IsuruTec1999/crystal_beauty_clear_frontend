@@ -20,15 +20,15 @@ export default function CartPage() {
                 {
                     cart.map((item , index)=>{
                         return(
-                            <div key ={index} className="w-full h-[100px] bg-white shadow-2xl my-[5px] flex items-center justify-between  p-[20px] relative">
-                                <button className="absolute right-[-50px] bg-red-500 w-[40px] h-[40px] rounded-full   text-white cursor-pointer flex justify-center items-center shadow"
+                            <div key ={index} className="w-full lg:h-[100px] bg-white shadow-2xl my-[5px] flex lg:flex-row flex-col items-center justify-between  p-[20px] relative">
+                                <button className="absolute right-4 lg:right-[-50px] bg-red-500 w-[40px] h-[40px] rounded-full   text-white cursor-pointer flex justify-center items-center shadow"
                                     onClick={()=>{
                                         removeFromCart(item.productId);
                                         setCartLoaded(false);
                                     }}>
                                     <TbTrash />
                                 </button>
-                                <img src={item.image} className="h-full aspect-square object-cover"/>
+                                <img src={item.image} className=" h-[100px] lg:h-full aspect-square object-cover"/>
                                 <div className="h-full max-w-[300px] w-[300px] overflow-hidden"> 
                                     <h1 className=" text-xl font-bold ">{item.name}</h1>
                                     <h2 className="text-gray-500 text-lg ">{item.altName.join(" | ")}</h2>
