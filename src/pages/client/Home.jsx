@@ -48,26 +48,27 @@ export default function Home() {
 
   return (
     <div>
-      <section className="relative bg-gradient-to-r from-rose-100 via-pink-100 to-rose-50 py-20 px-4">
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-r from-teal-400 via-pink-500 to-rose-300 py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">
+            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
               Discover Your Natural Beauty
             </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-white mb-8 max-w-2xl mx-auto">
               Premium cosmetics crafted with love and care. Enhance your natural
               glow with our curated collection of beauty essentials.
             </p>
-            <div className="flex gap-4 justify-center">
+            <div className="flex gap-6 justify-center">
               <Link
                 to="/products"
-                className="bg-rose-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-rose-600 transform hover:scale-105 transition-all shadow-lg"
+                className="bg-pink-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-pink-700 transform hover:scale-105 transition-all shadow-lg"
               >
                 Shop Now
               </Link>
               <Link
                 to="/reviews"
-                className="bg-white text-rose-500 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transform hover:scale-105 transition-all shadow-lg border-2 border-rose-500"
+                className="bg-white text-pink-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transform hover:scale-105 transition-all shadow-lg border-2 border-pink-600"
               >
                 Read Reviews
               </Link>
@@ -76,6 +77,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Categories Section */}
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">
@@ -85,15 +87,15 @@ export default function Home() {
             {categories.map((category, index) => (
               <div
                 key={index}
-                className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all cursor-pointer"
+                className="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all cursor-pointer"
               >
                 <img
                   src={category.image}
                   alt={category.name}
                   className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6">
-                  <h3 className="text-2xl font-bold text-white mb-2">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-6">
+                  <h3 className="text-3xl font-bold text-white mb-2">
                     {category.name}
                   </h3>
                   <p className="text-white/90">{category.description}</p>
@@ -104,6 +106,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Featured Products Section */}
       <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
@@ -118,7 +121,7 @@ export default function Home() {
             {featuredProducts.map((product) => (
               <div
                 key={product.id}
-                className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow group"
+                className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow group"
               >
                 <div className="relative overflow-hidden">
                   <img
@@ -132,10 +135,10 @@ export default function Home() {
                     {product.name}
                   </h3>
                   <div className="flex justify-between items-center">
-                    <span className="text-2xl font-bold text-rose-500">
+                    <span className="text-2xl font-bold text-pink-600">
                       ${product.price}
                     </span>
-                    <button className="bg-rose-500 text-white px-4 py-2 rounded-lg hover:bg-rose-600 transition-colors">
+                    <button className="bg-pink-600 text-white px-4 py-2 rounded-lg hover:bg-pink-700 transition-colors">
                       Add to Cart
                     </button>
                   </div>
@@ -154,13 +157,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-16 px-4 bg-gradient-to-r from-rose-50 to-pink-50">
+      {/* Feature Highlight Section */}
+      <section className="py-16 px-4 bg-gradient-to-r from-pink-100 to-rose-100">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div className="bg-white p-8 rounded-xl shadow-md">
-              <div className="w-16 h-16 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg
-                  className="w-8 h-8 text-rose-500"
+                  className="w-8 h-8 text-pink-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -181,9 +185,9 @@ export default function Home() {
               </p>
             </div>
             <div className="bg-white p-8 rounded-xl shadow-md">
-              <div className="w-16 h-16 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg
-                  className="w-8 h-8 text-rose-500"
+                  className="w-8 h-8 text-pink-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -204,9 +208,9 @@ export default function Home() {
               </p>
             </div>
             <div className="bg-white p-8 rounded-xl shadow-md">
-              <div className="w-16 h-16 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg
-                  className="w-8 h-8 text-rose-500"
+                  className="w-8 h-8 text-pink-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -230,7 +234,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-16 px-4 bg-gradient-to-r from-rose-500 to-pink-500 text-white">
+      {/* Subscription Section */}
+      <section className="py-16 px-4 bg-gradient-to-r from-pink-500 to-teal-400 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-4">
             Join Our Beauty Community
@@ -246,7 +251,7 @@ export default function Home() {
             />
             <button
               type="submit"
-              className="bg-white text-rose-500 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+              className="bg-white text-pink-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
             >
               Subscribe
             </button>
