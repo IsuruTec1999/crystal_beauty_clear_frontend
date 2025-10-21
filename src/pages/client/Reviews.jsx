@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 //import { supabase } from '../lib/supabase';
 
-
-
 export default function Reviews() {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -78,9 +76,7 @@ export default function Reviews() {
         {[1, 2, 3, 4, 5].map((star) => (
           <svg
             key={star}
-            className={`w-5 h-5 ${
-              star <= rating ? 'text-yellow-400' : 'text-gray-300'
-            }`}
+            className={`w-5 h-5 ${star <= rating ? 'text-yellow-400' : 'text-gray-300'}`}
             fill="currentColor"
             viewBox="0 0 20 20"
           >
@@ -98,10 +94,10 @@ export default function Reviews() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-rose-50 to-pink-50 py-16 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-rose-100 to-pink-100 py-16 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-gray-800 mb-4">
+          <h1 className="text-5xl font-extrabold text-gray-800 mb-4">
             Customer Reviews
           </h1>
           <p className="text-xl text-gray-600">
@@ -110,7 +106,7 @@ export default function Reviews() {
         </div>
 
         {reviews.length > 0 && (
-          <div className="bg-white rounded-2xl shadow-xl p-8 mb-12">
+          <div className="bg-white rounded-3xl shadow-xl p-8 mb-12">
             <div className="flex flex-col md:flex-row items-center justify-center gap-8">
               <div className="text-center">
                 <div className="text-6xl font-bold text-rose-500 mb-2">
@@ -129,7 +125,7 @@ export default function Reviews() {
                   const count = reviews.filter((r) => r.rating === rating).length;
                   const percentage = reviews.length > 0 ? (count / reviews.length) * 100 : 0;
                   return (
-                    <div key={rating} className="flex items-center gap-4 mb-2">
+                    <div key={rating} className="flex items-center gap-4 mb-4">
                       <span className="text-sm font-medium text-gray-700 w-8">
                         {rating}
                       </span>
@@ -155,13 +151,13 @@ export default function Reviews() {
 
         <div className="grid lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2">
-            <h2 className="text-3xl font-bold text-gray-800 mb-6">
+            <h2 className="text-3xl font-semibold text-gray-800 mb-6">
               All Reviews
             </h2>
 
             {loading ? (
               <div className="text-center py-12">
-                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-rose-500 mx-auto"></div>
+                <div className="animate-spin rounded-full h-12 w-12 border-b-4 border-rose-500 mx-auto"></div>
               </div>
             ) : reviews.length === 0 ? (
               <div className="bg-white rounded-xl shadow-md p-12 text-center">
@@ -194,9 +190,7 @@ export default function Reviews() {
                   >
                     <div className="flex items-start justify-between mb-4">
                       <div>
-                        <h3 className="font-semibold text-gray-800 text-lg">
-                          {review.name}
-                        </h3>
+                        <h3 className="font-semibold text-gray-800 text-lg">{review.name}</h3>
                         <p className="text-sm text-gray-500">
                           {new Date(review.created_at).toLocaleDateString('en-US', {
                             year: 'numeric',
@@ -212,9 +206,7 @@ export default function Reviews() {
                         Product: {review.product_name}
                       </p>
                     )}
-                    <p className="text-gray-700 leading-relaxed">
-                      {review.comment}
-                    </p>
+                    <p className="text-gray-700 leading-relaxed">{review.comment}</p>
                   </div>
                 ))}
               </div>
@@ -223,9 +215,7 @@ export default function Reviews() {
 
           <div className="lg:col-span-1">
             <div className="bg-white rounded-2xl shadow-xl p-8 sticky top-24">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">
-                Write a Review
-              </h2>
+              <h2 className="text-2xl font-semibold text-gray-800 mb-6">Write a Review</h2>
 
               {submitted && (
                 <div className="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
