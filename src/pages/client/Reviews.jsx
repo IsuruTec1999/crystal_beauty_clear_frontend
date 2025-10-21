@@ -332,10 +332,20 @@ export default function Reviews() {
                   Submit Review
                 </button>
               </form>
+              
             </div>
           </div>
         </div>
+        <div className="bg-gray-400 text-black py-4 mt-12">
+       <div className="max-w-7xl mx-auto text-center">
+          <p className="text-sm font-medium">
+          &copy; {new Date().getFullYear()} ID Products. All rights reserved.
+          </p>
+        </div>
+      </div>
       </div>
     </div>
+    
   );
+  
 }

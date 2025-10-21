@@ -47,7 +47,7 @@ export default function ContactUs() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-800 mb-1">Address</h3>
-                  <p className="text-gray-600">123 Beauty Avenue <br /> New York, NY 10001 <br /> United States</p>
+                  <p className="text-gray-600">123 Crystal Beauty <br /> Colombo 07 <br /> Sri Lanka</p>
                 </div>
               </div>
 
@@ -59,8 +59,8 @@ export default function ContactUs() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-800 mb-1">Email</h3>
-                  <p className="text-gray-600">support@beautycosmo.com</p>
-                  <p className="text-gray-600">info@beautycosmo.com</p>
+                  <p className="text-gray-600">support@crystalbeauty.com</p>
+                  <p className="text-gray-600">info@crystalbeauty.com</p>
                 </div>
               </div>
 
@@ -72,8 +72,8 @@ export default function ContactUs() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-800 mb-1">Phone</h3>
-                  <p className="text-gray-600">+1 (555) 123-4567</p>
-                  <p className="text-gray-600">+1 (555) 987-6543</p>
+                  <p className="text-gray-600">+94 70 239 5875</p>
+                  <p className="text-gray-600">+94 75 5526 500</p>
                 </div>
               </div>
 
@@ -227,5 +227,6 @@ export default function ContactUs() {
         </div>
       </div>
     </div>
+    
   );
 }
