@@ -258,7 +258,7 @@ export default function Home() {
           </form>
         </div>
       </section>
-       <div className="bg-gray-400 text-black py-4 mt-12">
+       <div className="bg-rose-300 text-black py-4 mt-12 rounded-lg">
        <div className="max-w-7xl mx-auto text-center">
           <p className="text-sm font-medium">
           &copy; {new Date().getFullYear()} ID Products. All rights reserved.

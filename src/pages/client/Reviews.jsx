@@ -150,7 +150,8 @@ export default function Reviews() {
         )}
 
         <div className="grid lg:grid-cols-3 gap-12">
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 bg-white rounded-3xl shadow-lg p-12 transform transition-all hover:scale-105 duration-300" >
+            
             <h2 className="text-3xl font-semibold text-gray-800 mb-6">
               All Reviews
             </h2>
@@ -214,7 +215,7 @@ export default function Reviews() {
           </div>
 
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-2xl shadow-xl p-8 sticky top-24">
+            <div className="bg-white rounded-3xl shadow-lg p-8 transform transition-all hover:scale-105 duration-300">
               <h2 className="text-2xl font-semibold text-gray-800 mb-6">Write a Review</h2>
 
               {submitted && (
@@ -336,7 +337,7 @@ export default function Reviews() {
             </div>
           </div>
         </div>
-        <div className="bg-gray-400 text-black py-4 mt-12">
+        <div className="bg-rose-300 text-black py-4 mt-12 rounded-lg">
        <div className="max-w-7xl mx-auto text-center">
           <p className="text-sm font-medium">
           &copy; {new Date().getFullYear()} ID Products. All rights reserved.
