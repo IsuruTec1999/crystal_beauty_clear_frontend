@@ -110,9 +110,10 @@ export default function Home() {
       <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">
-              Featured Products
-            </h2>
+         <h2 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-teal-400 mb-6 relative inline-block px-6 py-4 rounded-xl bg-gray-300 shadow-xl">
+  Featured Products
+</h2>
+
             <p className="text-gray-600">
               Handpicked favorites loved by our customers
             </p>
