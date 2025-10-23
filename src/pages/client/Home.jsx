@@ -80,9 +80,10 @@ export default function Home() {
       {/* Categories Section */}
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">
+          <h2 className="group text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-teal-400 mb-6 relative inline-block px-6 py-4 rounded-xl bg-gray-300 shadow-xl transform transition-all duration-300 group-hover:bg-gray-400 group-hover:shadow-2xl">
             Shop by Category
           </h2>
+
           <div className="grid md:grid-cols-3 gap-8">
             {categories.map((category, index) => (
               <div
@@ -111,12 +112,14 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
          <h2 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-teal-400 mb-6 relative inline-block px-6 py-4 rounded-xl bg-gray-300 shadow-xl">
-  Featured Products
-</h2>
+           Featured Products
+          </h2>
 
-            <p className="text-gray-600">
-              Handpicked favorites loved by our customers
-            </p>
+       <p className="text-2xl font-semibold text-center text-gray-800 mb-8 opacity-80 transform transition-all duration-300 hover:opacity-100">
+          Handpicked favorites loved by our customers
+        </p>
+
+
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {featuredProducts.map((product) => (
@@ -148,92 +151,101 @@ export default function Home() {
             ))}
           </div>
           <div className="text-center mt-12">
-            <Link
-              to="/products"
-              className="inline-block bg-gray-800 text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-700 transition-colors"
-            >
-              View All Products
-            </Link>
+              <Link
+            to="/products"
+            className="inline-block bg-pink-600 text-white px-10 py-4 rounded-full font-semibold text-lg shadow-lg hover:bg-pink-700 transition-all duration-300 transform hover:scale-105"
+          >
+            View All Products
+          </Link>
+
           </div>
         </div>
       </section>
 
-      {/* Feature Highlight Section */}
-      <section className="py-16 px-4 bg-gradient-to-r from-pink-100 to-rose-100">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div className="bg-white p-8 rounded-xl shadow-md">
-              <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-8 h-8 text-pink-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">
-                100% Natural
-              </h3>
-              <p className="text-gray-600">
-                All our products are made with natural and organic ingredients
-              </p>
-            </div>
-            <div className="bg-white p-8 rounded-xl shadow-md">
-              <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-8 h-8 text-pink-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">
-                Free Shipping
-              </h3>
-              <p className="text-gray-600">
-                Free delivery on orders over $50
-              </p>
-            </div>
-            <div className="bg-white p-8 rounded-xl shadow-md">
-              <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-8 h-8 text-pink-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">
-                Cruelty Free
-              </h3>
-              <p className="text-gray-600">
-                Never tested on animals, always with love
-              </p>
-            </div>
-          </div>
+ {/* Feature Highlight Section */}
+<section className="py-16 px-4 bg-gradient-to-r from-pink-100 to-rose-100">
+  <div className="max-w-7xl mx-auto">
+    <div className="grid md:grid-cols-3 gap-8 text-center">
+      
+      {/* First Box: 100% Natural */}
+      <div className="group bg-white p-8 rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+        <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg
+            className="w-8 h-8 text-pink-600 group-hover:text-pink-700 transition-colors duration-300"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M5 13l4 4L19 7"
+            />
+          </svg>
         </div>
-      </section>
+        <h3 className="text-xl font-semibold text-gray-800 mb-2">
+          100% Natural
+        </h3>
+        <p className="text-gray-600">
+          All our products are made with natural and organic ingredients
+        </p>
+      </div>
+      
+      {/* Second Box: Free Shipping */}
+      <div className="group bg-white p-8 rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+        <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg
+            className="w-8 h-8 text-pink-600 group-hover:text-pink-700 transition-colors duration-300"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+        </div>
+        <h3 className="text-xl font-semibold text-gray-800 mb-2">
+          Free Shipping
+        </h3>
+        <p className="text-gray-600">
+          Free delivery on orders over $50
+        </p>
+      </div>
+      
+      {/* Third Box: Cruelty-Free */}
+      <div className="group bg-white p-8 rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+        <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg
+            className="w-8 h-8 text-pink-600 group-hover:text-pink-700 transition-colors duration-300"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+            />
+          </svg>
+        </div>
+        <h3 className="text-xl font-semibold text-gray-800 mb-2">
+          Cruelty Free
+        </h3>
+        <p className="text-gray-600">
+          Never tested on animals, always with love
+        </p>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
 
       {/* Subscription Section */}
       <section className="py-16 px-4 bg-gradient-to-r from-pink-500 to-teal-400 text-white">
