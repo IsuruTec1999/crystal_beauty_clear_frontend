@@ -26,19 +26,20 @@ export default function ContactUs() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-rose-100 to-pink-100 py-16 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-rose-100 to-pink-100 ">
       <div className="max-w-7xl mx-auto">
-        <div className="relative bg-gradient-to-r from-pink-500 to-teal-400 py-16 px-4">
-  <div className="max-w-7xl mx-auto text-center text-white">
-    <h1 className="text-5xl font-extrabold mb-4">
-      Get in Touch
-    </h1>
-    <p className="text-xl mb-8 max-w-3xl mx-auto">
-      We’d love to hear from you! Send us a message, and we'll respond as soon as possible. Your feedback is valuable to us.
-    </p>
-    <div className="absolute inset-0 bg-cover bg-center opacity-30" style={{ backgroundImage: "url('https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=600')" }}></div>
-  </div>
-</div>
+      <div className="relative bg-gradient-to-r from-pink-500 to-teal-400 py-16 px-4">
+      <div className="max-w-7xl mx-auto text-center text-white ">
+        <h1 className="text-5xl font-extrabold mb-4 ">
+          Get in Touch
+        </h1>
+        <p className="text-xl mb-4 max-w-3xl mx-auto">
+          We’d love to hear from you! Send us a message, and we'll respond as soon as possible. Your feedback is valuable to us.
+        </p>
+        <div className="absolute inset-0 bg-cover bg-center opacity-30" style={{ backgroundImage: "url('')" }}></div>
+      </div>
+    </div>
+    <br></br>
 
         <div className="grid md:grid-cols-2 gap-12">
           <div className="bg-white rounded-3xl shadow-lg p-8 transform transition-all hover:scale-105 duration-300">

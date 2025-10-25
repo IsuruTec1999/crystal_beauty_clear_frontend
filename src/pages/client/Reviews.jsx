@@ -94,16 +94,21 @@ export default function Reviews() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-rose-100 to-pink-100 py-16 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-rose-100 to-pink-100 ">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-extrabold text-gray-800 mb-4">
-            Customer Reviews
-          </h1>
-          <p className="text-xl text-gray-600">
-            See what our customers are saying about our products
-          </p>
-        </div>
+        <div className="relative bg-gradient-to-r from-pink-500 to-teal-400 py-16 px-4">
+      <div className="max-w-7xl mx-auto text-center text-white">
+        <h1 className="text-5xl font-extrabold mb-4">
+          Customer Reviews
+        </h1>
+        <p className="text-xl mb-8 max-w-3xl mx-auto">
+           See what our customers are saying about our products
+        </p>
+        <div className="absolute inset-0 bg-cover bg-center opacity-30" style={{ backgroundImage: "url('')" }}></div>
+      </div>
+    </div>
+    <br/>
+    
 
         {reviews.length > 0 && (
           <div className="bg-white rounded-3xl shadow-xl p-8 mb-12">

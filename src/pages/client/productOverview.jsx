@@ -40,7 +40,9 @@ export default function ProductOverview() {
     )
 
     return (
+        
         <div className="w-full h-full">
+            
             {
                 status == "loading" && <Loader />
             }
@@ -121,6 +123,7 @@ export default function ProductOverview() {
                 </div>
             }
         </div>
+        
         
     )
     
