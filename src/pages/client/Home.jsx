@@ -165,7 +165,7 @@ export default function Home() {
       </section>
 
  {/* Feature Highlight Section */}
-<section className="py-16 px-4 bg-gradient-to-r from-pink-100 to-rose-100">
+<section className="py-16 px-4 bg-gradient-to-r from-pink-300 to-rose-200 rounded-t-3xl">
   <div className="max-w-7xl mx-auto">
     <div className="grid md:grid-cols-3 gap-8 text-center">
       
@@ -250,7 +250,7 @@ export default function Home() {
 
 
       {/* Subscription Section */}
-      <section className="py-16 px-4 bg-gradient-to-r from-pink-500 to-teal-400 text-white">
+      <section className="py-16 px-4 bg-gradient-to-r from-pink-500 to-teal-400 text-white rounded-b-3xl ">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-4">
             Join Our Beauty Community
