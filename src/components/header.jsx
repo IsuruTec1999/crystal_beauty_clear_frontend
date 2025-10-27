@@ -6,7 +6,7 @@ export default function Header() {
     const [isOpen, setIsOpen] = useState(true);
 
     return(
-        <header className="w-full  h-[70px]   flex justify-start items-center bg-gray-100 relative ">
+        <header className="w-full  h-[70px]   flex justify-start items-center bg-gray-100 relative rounded-3xl shadow-md">
             <GiHamburgerMenu className=" lg:hidden mx-4 text-3xl text-accent" onClick={() => setIsOpen(true)}/>
             <div className=" hidden lg:flex w-[500px] h-full flex justify-evenly items-center text-accent text-xl  ">
             <Link to = "/"> Home </Link>
