@@ -94,7 +94,7 @@ export default function Reviews() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-rose-100 to-pink-100 rounded-3xl py-12 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-rose-100 to-pink-100 rounded-3xl mt-4 ">
       <div className="max-w-7xl mx-auto">
         <div className="relative bg-gradient-to-r from-pink-500 to-teal-400 py-16 px-4 rounded-3xl">
       <div className="max-w-7xl mx-auto text-center text-white">

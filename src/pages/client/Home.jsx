@@ -47,9 +47,11 @@ export default function Home() {
   ];
 
   return (
+    
     <div>
+      
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-teal-400 via-pink-500 to-rose-300 py-20 px-4">
+      <section className="relative bg-gradient-to-r from-teal-400 via-pink-500 to-rose-300 py-20 px-4 rounded-3xl shadow-xl mt-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center">
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">

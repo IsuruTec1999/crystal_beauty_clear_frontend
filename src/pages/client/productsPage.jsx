@@ -22,12 +22,14 @@ export default function ProductsPage() {
             },[productsLoaded]
         )
     return (
+        
         <div className="w-full h-full   ">  
+        
          {/* Get in Touch Banner Section */}
-            <div className="relative bg-gradient-to-r from-pink-500 to-teal-400 py-16 px-4">
+            <div className="relative bg-gradient-to-r from-pink-500 to-teal-400 py-16 px-4 rounded-3xl mt-4 ">
                 <div className="max-w-7xl mx-auto text-center text-white relative z-10">
-                    <h1 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-teal-400 mb-4">
-                        Customer Reviews
+                    <h1 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-200 mb-4">
+                        Our Products
                     </h1>
                     <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto">
                         See what our customers are saying about our products
