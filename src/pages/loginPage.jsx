@@ -71,7 +71,7 @@ export default function LoginPage() {
         console.log("Login button clicked")
     }
     return (
-        <div className="w-full bg-red-900 h-screen bg-[url(/login_bg.jpg)] bg-cover bg-center flex ">
+        <div className="w-full bg-red-900 h-screen bg-[url(/login_bg3.jpg)] bg-cover bg-center flex ">
             <div className=" w-[50%] h-full">
 
             </div>
