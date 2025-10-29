@@ -35,8 +35,10 @@ export default function ProductsPage() {
                         See what our customers are saying about our products
                     </p>
                 </div>
+                
             </div>
            { /* Get in Touch Banner Section */}
+           
         
            {
             productsLoaded ?
@@ -51,12 +53,24 @@ export default function ProductsPage() {
                         }
                     )
                 }
+                
 
             </div>
             :
             <Loader/>
            }
+           <br/>
+           <br/>
+            <br/>
+            <div className="bg-rose-300 text-black py-4 mt-12 rounded-lg">
+       <div className="max-w-7xl mx-auto text-center">
+          <p className="text-sm font-medium">
+          &copy; {new Date().getFullYear()} ID Products. All rights reserved.
+          </p>
         </div>
+      </div>
+        </div> 
+        
     )
 }
 

@@ -85,15 +85,15 @@ export default function ContactUs() {
                 </div>
               </div>
 
-              <div className="flex items-start text-left">
-                <div className="w-12 h-12 bg-rose-200 rounded-lg flex items-center justify-center mr-4">
+              <div className="flex items-start text-left ">
+                <div className="w-12 h-12 bg-rose-200 rounded-lg flex items-center justify-center mr-4 ">
                   <svg className="w-6 h-6 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-800 mb-1">Business Hours</h3>
-                  <p className="text-gray-600 ">Monday - Friday: 9AM - 6PM</p>
+                  <h3 className="font-semibold text-gray-800 mb-1 ">Business Hours</h3>
+                  <p className="text-gray-600  ">Monday - Friday: 9AM - 6PM</p>
                   <p className="text-gray-600 ">Saturday: 10AM - 4PM</p>
                   <p className="text-gray-600 ">Sunday: Closed</p>
                 </div>
