@@ -5,8 +5,8 @@ export default function ProductCard(props){
     const product = props.product;
 
     return(
-            <Link to = {"/overview/"+product.productId} className="w-[250px] m-4 h-[350px]  shadow-2xl " >
-                <img className="w-full h-[220px] object-cover"src= {product.images[0]}/>
+            <Link to = {"/overview/"+product.productId} className="w-[250px] m-4 h-[350px]  shadow-2xl rounded-lg transform transition-all hover:scale-105 duration-300" >
+                <img className="w-full h-[220px] object-cover rounded-lg"src= {product.images[0]}/>
                 <div className="h-[110px] w-full flex flex-col justify-center px-4"> 
                     <p className="text-gray-400">{product.productId}</p>
                     <p className="text-lg font-bold">{product.name}</p>
