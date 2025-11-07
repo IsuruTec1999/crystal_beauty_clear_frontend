@@ -102,7 +102,7 @@ export default function Reviews() {
           Customer Reviews
         </h1>
         <p className="text-xl mb-8 max-w-3xl mx-auto">
-           See what our customers are saying about our products
+           Find out what makes our products stand out, according to our satisfied customers!
         </p>
         <div className="absolute inset-0 bg-cover bg-center opacity-30" style={{ backgroundImage: "url('')" }}></div>
       </div>

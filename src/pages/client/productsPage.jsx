@@ -32,7 +32,7 @@ export default function ProductsPage() {
                         Our Products
                     </h1>
                     <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto">
-                        See what our customers are saying about our products
+                        Explore our premium products loved by customers for their quality and effectiveness.
                     </p>
                 </div>
                 
