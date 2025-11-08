@@ -31,7 +31,7 @@ export default function ProductsPage() {
                     <h1 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-200 mb-4">
                         Our Products
                     </h1>
-                    <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto">
+                    <p className="text-2xl text-gray-200 mb-4 max-w-3xl mx-auto">
                         Explore our premium products loved by customers for their quality and effectiveness.
                     </p>
                 </div>

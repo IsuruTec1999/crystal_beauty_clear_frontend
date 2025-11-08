@@ -33,7 +33,7 @@ export default function ContactUs() {
         <h1 className="text-5xl font-extrabold mb-4 ">
           Get in Touch
         </h1>
-        <p className="text-xl mb-4 max-w-3xl mx-auto">
+        <p className="text-2xl mb-4 max-w-3xl mx-auto">
           We’d love to hear from you! Send us a message, and we'll respond as soon as possible. Your feedback is valuable to us.
         </p>
         <div className="absolute inset-0 bg-cover bg-center opacity-30" style={{ backgroundImage: "url('')" }}></div>
