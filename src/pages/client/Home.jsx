@@ -5,25 +5,25 @@ export default function Home() {
     {
       id: 1,
       name: 'Nourishing Lip Stick',
-      price: 8.99,
+      price: 350.00,
       image: 'https://images.pexels.com/photos/2113855/pexels-photo-2113855.jpeg?auto=compress&cs=tinysrgb&w=600',
     },
     {
       id: 2,
       name: 'Glow Face Cream',
-      price: 25.99,
+      price: 999.00,
       image: 'https://images.pexels.com/photos/3785147/pexels-photo-3785147.jpeg?auto=compress&cs=tinysrgb&w=600',
     },
     {
       id: 3,
       name: 'Rose Water Facial Mist',
-      price: 15.50,
+      price: 750.00,
       image: 'https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg?auto=compress&cs=tinysrgb&w=600',
     },
     {
       id: 4,
       name: 'Anti-Aging Serum',
-      price: 35.99,
+      price: 599.00,
       image: 'https://images.pexels.com/photos/3762879/pexels-photo-3762879.jpeg?auto=compress&cs=tinysrgb&w=600',
     },
   ];
@@ -142,10 +142,16 @@ export default function Home() {
                   </h3>
                   <div className="flex justify-between items-center">
                     <span className="text-2xl font-bold text-pink-600">
-                      ${product.price}
+                      LKR :{product.price}
                     </span>
                     <button className="bg-pink-600 text-white px-4 py-2 rounded-lg hover:bg-pink-700 transition-colors">
-                      Add to Cart
+                      <Link
+                to="/products"
+                
+              >
+                Add to Cart
+              </Link>
+                      
                     </button>
                   </div>
                 </div>
